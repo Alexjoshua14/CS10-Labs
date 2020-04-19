@@ -47,6 +47,9 @@ int checkPos(int row, int col) {
   return TRUE;
 }
 
+//Checks the row and column for other queens, if there are no other queens in the row and column then
+//it places a queen in the checked position. If we reach the end of the board and have not placed eight queens
+//then it will backtrack and reorganize the way the queens were placed.
 int placeQueenRec(int row) {
   if (row == SIZE-1) return TRUE;
   
@@ -82,16 +85,7 @@ int main() {
   }
   
   placeQueenRec(1);
-  
-  // prints the board
-  /*
-  for(int x = 0; x < 10; x++) {
-    for(int y = 0; y < 10; y++) {
-      printf("%c ", board[x][y]);
-    }
-    printf("\n");
-  }
-  */
+
   printBoard();
 
   return 0;
