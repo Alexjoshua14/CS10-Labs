@@ -12,27 +12,28 @@ typedef int bool;
 
 int main() {
   int a[SIZE] = {0};
-  for(int i =1; i < SIZE; i++){
+
+  //Initializes array
+  for(int i = 1; i < SIZE; i++){
     a[i] = 1;
   }
+
+  //Checks numbers 0 - SIZE to see if they are divisible by anything
   for(int i = 2; i < SIZE; i++){
-    for(int j = 2; (j < i) && (j< (SIZE/2)); j++){
+    for(int j = 2; j < ((i / 2) + 1); j++){
       if(!(i % j)){
 	a[i] = 0;
 	break;
       }
-
     }
-    for(int i =0; i < SIZE; i++){
-      if(a[i] == 1){
-	printf("%d\n", i); 
-      }
   }
 
+  //Goes through the array and prints all the prime numbers
+  for(int i = 0; i < SIZE; i++){
+    if(a[i] == 1){
+	printf("%d\n", i); 
+    }
   }
   
-
-
-
   return 0;
 }
